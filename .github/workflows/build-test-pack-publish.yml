@@ -35,8 +35,5 @@ jobs:
       - name: Pack
         run: dotnet pack Serilog.Sinks.FastDB.csproj --configuration Release --no-build --output ./artifacts
 
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v2
-
       - name: Publish to NuGet.org (Trusted Publishing)
         run: dotnet nuget push "./artifacts/*.nupkg" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
